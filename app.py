@@ -3,6 +3,7 @@ import os
 import json
 import torch
 import random
+import argparse
 
 import gradio as gr
 from glob import glob
@@ -324,5 +325,10 @@ def ui():
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--subpath', type=str, default='', help='customize the subpath for gradio, use with reverse proxy')
+    args = parser.parse_args()
+
     demo = ui()
-    demo.launch(server_name = '0.0.0.0', share=True)
+    demo.launch(server_name = '0.0.0.0', share=True,
+            root_path = f"{args.subpath}",)
