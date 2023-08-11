@@ -330,5 +330,5 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     demo = ui()
-    demo.launch(server_name = '0.0.0.0', share=True,
+    demo.launch(server_name = '0.0.0.0', share=False,
             root_path = f"{args.subpath}",)
